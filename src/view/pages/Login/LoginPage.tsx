@@ -1,10 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
+import { userLoginSchema } from "@/services/zodSchemas";
+
 import ConectaSeinfraIcon from "@/assets/ConectaSeinfra.svg";
 import LogoPrefeitura from "@/assets/LogoPrefeitura.svg";
 import pinkLine from "@/assets/pinkLine.svg";
 import yellowLine from "@/assets/yellowLine.svg";
+
 import { Button } from "@/components/ui/button";
 import {
   Field,
@@ -13,7 +16,6 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { userLoginSchema } from "@/services/zodSchemas";
 import { Link } from "@tanstack/react-router";
 
 function LoginPage() {
@@ -26,11 +28,11 @@ function LoginPage() {
   });
 
   function onSubmit() {
-    console.log("patapim");
+    console.log("logado");
   }
 
   return (
-    <div className="relative flex min-h-screen h-auto flex-col overflow-hidden">
+    <div className="relative flex min-h-screen h-auto font-semibold flex-col overflow-hidden">
       <img
         src={pinkLine}
         alt="Linha Rosa Background"
@@ -41,11 +43,11 @@ function LoginPage() {
         className="flex gap-8 flex-col justify-center items-center"
       >
         <div className="text-center mt-20">
-          <h1 className="text-5xl font-semibold font-manrope text-seinfra-blue-light-700 mb-4 px-4">
+          <h1 className="text-5xl text-seinfra-blue-light-700 mb-4 px-4">
             Login
           </h1>
 
-          <p className="text-seinfra-blue-light-500 font-semibold px-4">
+          <p className="text-seinfra-blue-light-500 px-4">
             Informe seu CPF e senha para entrar na sua conta
           </p>
         </div>
@@ -55,22 +57,12 @@ function LoginPage() {
             name="cpf"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel
-                  htmlFor={field.name}
-                  className="text-center w-full justify-self-start max-w-[600px]"
-                >
+                <FieldLabel htmlFor={field.name} className="max-w-[600px]">
                   CPF
                 </FieldLabel>
-                <Input
-                  {...field}
-                  id={field.name}
-                  className="max-w-[600px] font-semibold"
-                />
+                <Input {...field} id={field.name} className="max-w-[600px]" />
                 {fieldState.invalid && (
-                  <FieldError
-                    errors={[fieldState.error]}
-                    className="font-semibold"
-                  />
+                  <FieldError errors={[fieldState.error]} />
                 )}
               </Field>
             )}
@@ -80,23 +72,17 @@ function LoginPage() {
             name="password"
             render={({ field, fieldState }) => (
               <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
-                <FieldLabel
-                  htmlFor={field.name}
-                  className="text-center w-full justify-self-start max-w-[600px]"
-                >
+                <FieldLabel htmlFor={field.name} className="max-w-[600px]">
                   Senha
                 </FieldLabel>
                 <Input
                   type="password"
                   {...field}
                   id={field.name}
-                  className="max-w-[600px] font-semibold"
+                  className="max-w-[600px]"
                 />
                 {fieldState.invalid && (
-                  <FieldError
-                    errors={[fieldState.error]}
-                    className="font-semibold"
-                  />
+                  <FieldError errors={[fieldState.error]} />
                 )}
                 <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">
                   Entrar
@@ -106,9 +92,9 @@ function LoginPage() {
           />
         </FieldGroup>
 
-        <footer className="flex items-center mt-4 text-center justify-center flex-col gap-8 items-center">
+        <footer className="flex mt-4 text-center justify-center flex-col gap-8 items-center">
           <h1 className="text-seinfra-blue-light-500">
-            Não tem uma conta? <br />{" "}
+            Não tem uma conta? <br />
             <Link to="/" className="text-seinfra-yellow-300 underline">
               Criar conta
             </Link>
