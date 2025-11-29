@@ -14,6 +14,9 @@ body {
 @theme inline {
   --font-manrope: "Manrope", sans-serif;
 
+  --spacing-component-max-w: 600px;
+  --spacing-component-w: 90vw;
+
     /* seinfra colors*/
   
   --color-seinfra-blue-light-50:  #e9f6f7;
