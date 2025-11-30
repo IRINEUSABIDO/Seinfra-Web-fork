@@ -17,14 +17,14 @@ const inputVariants = cva(
           "focus-visible:border-seinfra-blue-light-100",
         ),
       },
-      size: {
+      uiSize: {
         default: "w-full min-w-0 h-9 px-3 py-1",
         seinfra: "px-4 py-3 w-component-w max-w-component-max-w",
       },
     },
     defaultVariants: {
       variant: "seinfra",
-      size: "seinfra",
+      uiSize: "seinfra",
     },
   },
 );
@@ -32,7 +32,7 @@ const inputVariants = cva(
 function Input({
   className,
   variant,
-  size,
+  uiSize,
   type,
   ...props
 }: React.ComponentProps<"input"> & VariantProps<typeof inputVariants>) {
@@ -40,7 +40,7 @@ function Input({
     <input
       type={type}
       data-slot="input"
-      className={cn(inputVariants({ variant, size, className }))}
+      className={cn(inputVariants({ variant, uiSize, className }))}
       {...props}
     />
   );

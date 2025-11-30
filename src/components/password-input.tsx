@@ -1,10 +1,8 @@
 import * as React from "react";
-
-import { Input } from "./input";
 import { useState } from "react";
-import { EyeIcon, EyeOff } from "lucide-react";
-
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { EyeIcon, EyeOff } from "lucide-react";
 
 export default function PasswordInput({
   className,
@@ -14,7 +12,7 @@ export default function PasswordInput({
   const Icon = isVisible ? EyeOff : EyeIcon;
 
   return (
-    <div className="relative max-w-[600px]">
+    <div className="relative max-w-component-max-w">
       <Input
         className={cn("pr-9", className)}
         {...props}
@@ -25,7 +23,7 @@ export default function PasswordInput({
         onClick={() => setIsVisible((prev) => !prev)}
         className="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer "
       >
-        <Icon className="size-5 text-seinfra-blue-light-300 transition:150 hover:text-seinfra-blue-light-200" />
+        <Icon className="size-5 text-seinfra-blue-light-300 transition:150 hover:text-seinfra-blue-light-400" />
       </button>
     </div>
   );

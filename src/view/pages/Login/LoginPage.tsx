@@ -14,6 +14,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import PasswordInput from "@/components/password-input";
 import { Link } from "@tanstack/react-router";
 
 function LoginPage() {
@@ -68,7 +69,7 @@ function LoginPage() {
             render={({ field, fieldState }) => (
               <Field orientation={"seinfra"} data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>Senha</FieldLabel>
-                <Input {...field} id={field.name} type="password" />
+                <PasswordInput {...field} id={field.name}></PasswordInput>
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
@@ -82,7 +83,7 @@ function LoginPage() {
             Não tem uma conta? <br />
             <Link
               to="/"
-              className="text-seinfra-yellow-300 hover:text-seinfra-yellow-500 underline"
+              className="text-seinfra-yellow-500 hover:text-seinfra-yellow-600 underline"
             >
               Criar conta
             </Link>
