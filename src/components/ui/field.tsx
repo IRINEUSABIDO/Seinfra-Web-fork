@@ -57,8 +57,9 @@ const fieldVariants = cva(
   {
     variants: {
       orientation: {
-        vertical: [
-          "flex-col [&>*]:w-[90vw] text-center flex justify-center items-center [&>.sr-only]:w-auto h-full",
+        vertical: ["flex-col [&>*]:w-full [&>.sr-only]:w-auto"],
+        seinfra: [
+          "flex-col [&>*]:w-component-w text-center flex justify-center items-center [&>.sr-only]:w-auto h-full",
         ],
         horizontal: [
           "flex-row items-center",
@@ -73,7 +74,7 @@ const fieldVariants = cva(
       },
     },
     defaultVariants: {
-      orientation: "vertical",
+      orientation: "seinfra",
     },
   },
 );
@@ -104,7 +105,7 @@ const fieldLabelVariants = cva(
 
 function Field({
   className,
-  orientation = "vertical",
+  orientation = "seinfra",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants>) {
   return (

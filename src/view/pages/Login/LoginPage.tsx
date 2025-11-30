@@ -53,7 +53,7 @@ function LoginPage() {
             control={form.control}
             name="cpf"
             render={({ field, fieldState }) => (
-              <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
+              <Field orientation={"seinfra"} data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name} className="max-w-[600px]">
                   CPF
                 </FieldLabel>
@@ -68,7 +68,7 @@ function LoginPage() {
             control={form.control}
             name="password"
             render={({ field, fieldState }) => (
-              <Field orientation={"vertical"} data-invalid={fieldState.invalid}>
+              <Field orientation={"seinfra"} data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name} className="max-w-[600px]">
                   Senha
                 </FieldLabel>
