@@ -2,12 +2,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { userLoginSchema } from "@/services/zodSchemas";
-
 import ConectaSeinfraIcon from "@/assets/ConectaSeinfra.svg";
 import LogoPrefeitura from "@/assets/LogoPrefeitura.svg";
 import pinkLine from "@/assets/pinkLine.svg";
 import yellowLine from "@/assets/yellowLine.svg";
-
 import { Button } from "@/components/ui/button";
 import {
   Field,
@@ -46,7 +44,6 @@ function LoginPage() {
           <h1 className="text-5xl text-seinfra-blue-light-700 mb-4 px-4">
             Login
           </h1>
-
           <p className="text-seinfra-blue-light-500 px-4">
             Informe seu CPF e senha para entrar na sua conta
           </p>
@@ -60,7 +57,7 @@ function LoginPage() {
                 <FieldLabel htmlFor={field.name} className="max-w-[600px]">
                   CPF
                 </FieldLabel>
-                <Input {...field} id={field.name} className="max-w-[600px]" />
+                <Input {...field} id={field.name} />
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
@@ -75,23 +72,15 @@ function LoginPage() {
                 <FieldLabel htmlFor={field.name} className="max-w-[600px]">
                   Senha
                 </FieldLabel>
-                <Input
-                  type="password"
-                  {...field}
-                  id={field.name}
-                  className="max-w-[600px]"
-                />
+                <Input {...field} id={field.name} type="password" />
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
-                <Button className="px-4 py-3 mt-14 rounded-3xl max-w-[600px]">
-                  Entrar
-                </Button>
+                <Button className="mt-14">Entrar</Button>
               </Field>
             )}
           />
         </FieldGroup>
-
         <footer className="flex mt-4 text-center justify-center flex-col gap-8 items-center">
           <h1 className="text-seinfra-blue-light-500">
             Não tem uma conta? <br />
@@ -113,5 +102,4 @@ function LoginPage() {
     </div>
   );
 }
-
 export default LoginPage;
