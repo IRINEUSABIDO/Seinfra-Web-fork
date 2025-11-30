@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "@tanstack/react-router";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { userLoginSchema } from "@/services/zodSchemas";
@@ -18,6 +19,7 @@ import PasswordInput from "@/components/password-input";
 import { Link } from "@tanstack/react-router";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof userLoginSchema>>({
     defaultValues: {
       password: "",
@@ -26,10 +28,14 @@ function LoginPage() {
     resolver: zodResolver(userLoginSchema),
   });
 
-  function onSubmit() {
-    console.log("logado");
+  async function onSubmit(data: z.infer<typeof userLoginSchema>) {
+    try {
+      console.log(data);
+      navigate({ to: "/", replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   }
-
   return (
     <div className="relative flex flex-col min-h-dvh h-auto font-semibold">
       <img
