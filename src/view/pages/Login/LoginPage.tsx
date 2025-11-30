@@ -30,11 +30,11 @@ function LoginPage() {
   }
 
   return (
-    <div className="relative flex min-h-screen h-auto font-semibold flex-col overflow-hidden">
+    <div className="relative flex flex-col min-h-dvh h-auto font-semibold">
       <img
         src={pinkLine}
         alt="Linha Rosa Background"
-        className="absolute z-[-10] left-0 -top-10"
+        className="absolute left-0 -top-20 sm:-top-10"
       />
       <form
         onSubmit={form.handleSubmit(onSubmit)}
@@ -48,15 +48,13 @@ function LoginPage() {
             Informe seu CPF e senha para entrar na sua conta
           </p>
         </div>
-        <FieldGroup className="flex felx-col gap-8">
+        <FieldGroup>
           <Controller
             control={form.control}
             name="cpf"
             render={({ field, fieldState }) => (
               <Field orientation={"seinfra"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="max-w-[600px]">
-                  CPF
-                </FieldLabel>
+                <FieldLabel htmlFor={field.name}>CPF</FieldLabel>
                 <Input {...field} id={field.name} />
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
@@ -69,9 +67,7 @@ function LoginPage() {
             name="password"
             render={({ field, fieldState }) => (
               <Field orientation={"seinfra"} data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} className="max-w-[600px]">
-                  Senha
-                </FieldLabel>
+                <FieldLabel htmlFor={field.name}>Senha</FieldLabel>
                 <Input {...field} id={field.name} type="password" />
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
@@ -84,19 +80,22 @@ function LoginPage() {
         <footer className="flex mt-4 text-center justify-center flex-col gap-8 items-center">
           <h1 className="text-seinfra-blue-light-500">
             Não tem uma conta? <br />
-            <Link to="/" className="text-seinfra-yellow-300 underline">
+            <Link
+              to="/"
+              className="text-seinfra-yellow-300 hover:text-seinfra-yellow-500 underline"
+            >
               Criar conta
             </Link>
           </h1>
-          <div className="flex items-center justify-center mt-[5%] mb-[5%] gap-y-12 gap-x-24 sm:flex-row flex-col">
+          <div className="flex items-center justify-center mt-14 mb-14 gap-y-12 gap-x-24 sm:flex-row flex-col">
             <img src={ConectaSeinfraIcon} alt="Logo do Conecta Seinfra" />
-            <img src={LogoPrefeitura} alt="LogoPrefeitura de Nova Russas" />
+            <img src={LogoPrefeitura} alt="Logo Prefeitura de Nova Russas" />
           </div>
         </footer>
         <img
           src={yellowLine}
           alt="Yellow Line"
-          className="absolute right-0 bottom-0"
+          className="absolute -right-2 sm:right-0 -bottom-10"
         />
       </form>
     </div>
