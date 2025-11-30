@@ -78,6 +78,30 @@ const fieldVariants = cva(
   },
 );
 
+const fieldLabelVariants = cva(
+  cn(
+    "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50",
+    "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border [&>*]:data-[slot=field]:p-4",
+    "has-data-[state=checked]:bg-primary/5 has-data-[state=checked]:border-primary dark:has-data-[state=checked]:bg-primary/10",
+  ),
+  {
+    variants: {
+      variant: {
+        default: [""],
+        seinfra: [
+          cn(
+            "[&>*]:w-component-w max-w-component-max-w",
+            "text-seinfra-blue-light-700 font-semibold",
+          ),
+        ],
+      },
+    },
+    defaultVariants: {
+      variant: "seinfra",
+    },
+  },
+);
+
 function Field({
   className,
   orientation = "vertical",
@@ -109,22 +133,18 @@ function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
 
 function FieldLabel({
   className,
+  variant,
   ...props
-}: React.ComponentProps<typeof Label>) {
+}: React.ComponentProps<typeof Label> &
+  VariantProps<typeof fieldLabelVariants>) {
   return (
     <Label
       data-slot="field-label"
-      className={cn(
-        "text-seinfra-blue-light-700 group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50",
-        "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border [&>*]:data-[slot=field]:p-4",
-        "has-data-[state=checked]:bg-primary/5 has-data-[state=checked]:border-primary dark:has-data-[state=checked]:bg-primary/10",
-        className,
-      )}
+      className={cn(fieldLabelVariants({ variant, className }))}
       {...props}
     />
   );
 }
-
 function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
