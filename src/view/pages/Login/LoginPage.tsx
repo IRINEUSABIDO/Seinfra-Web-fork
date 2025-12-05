@@ -37,7 +37,7 @@ function LoginPage() {
     }
   }
   return (
-    <div className="relative flex flex-col min-h-dvh h-auto font-semibold">
+    <div className="relative flex justify-center items-center flex-col min-h-dvh h-auto font-semibold">
       <img
         src={pinkLine}
         alt="Linha Rosa Background"
@@ -45,7 +45,7 @@ function LoginPage() {
       />
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex gap-8 flex-col justify-center items-center"
+        className="flex gap-8 flex-col"
       >
         <div className="text-center mt-20">
           <h1 className="text-5xl text-seinfra-blue-light-700 mb-4 px-4">
@@ -94,7 +94,7 @@ function LoginPage() {
               Criar conta
             </Link>
           </h1>
-          <div className="flex items-center justify-center mt-14 mb-14 gap-y-12 gap-x-24 sm:flex-row flex-col">
+          <div className="flex items-center justify-center mt-14 mb-14 gap-y-12 gap-x-10 sm:gap-x-24">
             <img src={ConectaSeinfraIcon} alt="Logo do Conecta Seinfra" />
             <img src={LogoPrefeitura} alt="Logo Prefeitura de Nova Russas" />
           </div>
